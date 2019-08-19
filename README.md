@@ -51,14 +51,12 @@ has_many :users, through: :groups_users
 
 |column|type|options|
 |------|----|-------|
-|id    |integer|null: false, unique: true|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|user  |references|null: false, foreign_key: true|
+|group |references|null: false, foreign_key: true|
 
 ### Assocation
-be_longs user
-be_longs group
-be_longs message
+be_longs :user
+be_longs :group
 
 ## messagesテーブル
 
