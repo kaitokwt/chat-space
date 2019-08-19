@@ -27,13 +27,14 @@ Things you may want to cover:
 
 |column|type|options|
 |------|----|-------|
-|id    |integer|null: false, unique: true|
-|name  |text|null: false, unique: true|
+|name  |string|null: false, unique: true, index: true|
 |email |text|null: false, unique: true|
 |password|string|null: false|
 
 ### Assocation
-has_many groups_users
+has_many :messages
+has_many :groups_users
+has_many :groups, through: :groups_users
 
 ## groupsテーブル
 
