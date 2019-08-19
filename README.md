@@ -40,11 +40,12 @@ has_many :groups, through: :groups_users
 
 |column|type|options|
 |------|----|-------|
-|id    |integer|null: false, unique: true|
-|name  |text|null: true|
+|name  |string|null: false|
 
 ### Assocation
-has_many groups_users
+has_many :messages
+has_many :groups_users
+has_many :users, through: :groups_users
 
 ## groups_usersテーブル
 
