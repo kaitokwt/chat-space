@@ -62,10 +62,11 @@ be_longs :group
 
 |column|type|options|
 |------|----|-------|
-|id    |integer|null: false, unique: true|
-|body  |text|null: false|
+|body  |text|       |
 |image |string|     |
-|groups_user_id|integer|null: true, foreign: true|
+|user  |references|null: false, foreign: true|
+|group |references|null: false, foreign: true|
 
 ### Assocation
-has_many groups_users
+belongs_to :user
+belongs_to :group
