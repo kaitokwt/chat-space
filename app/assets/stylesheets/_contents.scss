@@ -1,0 +1,35 @@
+.contents {
+  width: calc(100vw - 300px);
+  float: left;
+  .content-header {
+    height: 96px;  
+    border-bottom: 1px solid;
+    border-color: #eeeeee;
+    padding: 0 40px;
+    @include space;
+    &__group {
+      margin-top: 35px; 
+      &__group-name {
+        @include font(#333333, 20px);
+        margin-bottom: 15px;
+      }
+      &__member {
+        @include font(#999999, 12px);
+        text-align: right;
+        &__name {
+          display: inline;
+        }
+      }
+    }
+    &__btn {
+      margin-top: 28px;
+      padding: 0 20px;
+      height: 40px;
+      line-height: 40px;
+      border: 1px solid;
+      border-color: $blue;
+      color: $blue;
+      display: block;
+    }
+  }
+}
