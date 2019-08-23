@@ -29,3 +29,11 @@
           Edit
     .main-chat
       = render 'chat'
+    .form
+      %form{action: "/", method: "post", class: "message"}
+        .form-box
+          %input{type: "text", name: "message", method: "post", class: "form-box__text", placeholder: "type message"}
+          %label.upload-label{class: "form-box__image", for: "upload-icon"}
+            %i.fa.fa-picture-o
+            %input{type: "file", name: "image", id: "upload-icon", class: "form-box__image__file"}
+        %input{type: "submit", name: "comit", value: "Send", class: "submit"}
