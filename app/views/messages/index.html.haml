@@ -1,0 +1,39 @@
+.wrapper
+  .header
+    グループを作成しました
+  .left-contents
+    .left-header
+      .left-header__box
+        .left-header__box__name
+          tarou
+        .left-header__box__btn
+          = link_to root_path do
+            %i.fa.fa-edit 
+          = link_to root_path do
+            %i.fa.fa-cog 
+    .groups
+      = render 'group'
+  .contents
+    .content-header
+      .content-header__group
+        %h1.content-header__group__group-name
+          test
+        %ul.content-header__group__member
+          Member：
+          %li.content-header__group__member__name
+            tarou
+          %li.content-header__group__member__name
+            jirou
+      = link_to root_path do
+        .content-header__btn
+          Edit
+    .main-chat
+      = render 'chat'
+    .form
+      %form{action: "/", method: "post", class: "message"}
+        .form-box
+          %input{type: "text", name: "message", method: "post", class: "form-box__text", placeholder: "type message"}
+          %label.upload-label{class: "form-box__image", for: "upload-icon"}
+            %i.fa.fa-picture-o
+            %input{type: "file", name: "image", id: "upload-icon", class: "form-box__image__file"}
+        %input{type: "submit", name: "comit", value: "Send", class: "submit"}

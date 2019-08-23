@@ -1,0 +1,9 @@
+@mixin font($color: #fff, $fSize: 16px) {
+  color: $color;
+  font-size: $fSize;
+}
+
+@mixin space() {
+  display: flex;
+  justify-content: space-between;
+}
