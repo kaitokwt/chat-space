@@ -1,10 +1,11 @@
-@import 'reset';
+@import 'config/reset';
 
-@import 'variables';
-@import 'mixins';
+@import 'config/variables';
+@import 'mixin/mixins';
 
 @import 'font-awesome';
-@import 'header';
-@import 'left_contents';
-@import 'contents';
-@import 'form';
+@import 'modules/flash';
+@import 'modules/left_contents';
+@import 'modules/contents';
+@import 'modules/form';
+@import 'modules/user';
