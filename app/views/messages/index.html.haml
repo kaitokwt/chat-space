@@ -5,7 +5,7 @@
         .left-header__box__name
           = current_user.name
         .left-header__box__btn
-          = link_to root_path do
+          = link_to new_group_path do
             %i.fa.fa-edit 
           = link_to edit_user_path(current_user) do
             %i.fa.fa-cog 
@@ -14,7 +14,7 @@
   .contents
     .content-header
       .content-header__group
-        %h1.content-header__group__group-name
+        .content-header__group__group-name
           test
         %ul.content-header__group__member
           Member：

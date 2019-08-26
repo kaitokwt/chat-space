@@ -1,18 +1,7 @@
-.group
-  = link_to root_path do
-    .group__name
-      test
-    .group__message
-      まだメッセージはありません
-.group
-  = link_to root_path do
-    .group__name
-      sample
-    .group__message
-      まだメッセージはありません
-.group
-  = link_to root_path do
-    .group__name
-      example
-    .group__message
-      まだメッセージはありません
+- current_user.groups.each do |group|
+  .group
+    = link_to root_path do
+      .group__name
+        = group.name
+      .group__message
+        まだメッセージはありません
