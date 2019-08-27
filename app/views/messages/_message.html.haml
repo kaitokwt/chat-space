@@ -1,0 +1,8 @@
+- @messages.each do |message|
+  .chat-box
+    .chat-box__user-name
+      = message.user.name
+      .chat-box__user-name__time
+        = message.created_at.in_time_zone('Tokyo').strftime('%Y/%m/%d(%a) %T')
+    %p.chat-box__text
+      = message.body

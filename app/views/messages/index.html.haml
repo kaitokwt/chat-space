@@ -15,7 +15,7 @@
         .content-header__btn
           Edit
     .main-chat
-      = render 'chat'
+      = render @messages
     .form
       = form_for([@group, @message], html: {class: 'message'}) do |f|
         .form-box
