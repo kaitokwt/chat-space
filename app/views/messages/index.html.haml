@@ -15,12 +15,12 @@
         .content-header__btn
           Edit
     .main-chat
-      = render 'chat'
+      = render @messages
     .form
       = form_for([@group, @message], html: {class: 'message'}) do |f|
         .form-box
           = f.text_field :body, class: "form-box__text", placeholder: "type message"
-          = f.label :image, class: "form-box__image", for: "upload-icon" do
+          = f.label :image, class: "form-box__image" do
             %i.fa.fa-picture-o
-            = f.file_field :image, id: "upload-icon", class: "form-box__image__file"
+            = f.file_field :image, class: "form-box__image__file"
         = f.submit "Send", class: "submit"
