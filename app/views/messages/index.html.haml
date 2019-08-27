@@ -17,10 +17,10 @@
     .main-chat
       = render 'chat'
     .form
-      %form{action: "/", method: "post", class: "message"}
+      = form_for([@group, @message], html: {class: 'message'}) do |f|
         .form-box
-          %input{type: "text", name: "message", method: "post", class: "form-box__text", placeholder: "type message"}
-          %label.upload-label{class: "form-box__image", for: "upload-icon"}
+          = f.text_field :body, class: "form-box__text", placeholder: "type message"
+          = f.label :image, class: "form-box__image", for: "upload-icon" do
             %i.fa.fa-picture-o
-            %input{type: "file", name: "image", id: "upload-icon", class: "form-box__image__file"}
-        %input{type: "submit", name: "comit", value: "Send", class: "submit"}
+            = f.file_field :image, id: "upload-icon", class: "form-box__image__file"
+        = f.submit "Send", class: "submit"
