@@ -4,13 +4,13 @@
 }
 
 .contents .content-header {
-  height: 100px;  
+  height: 100px;
   border-bottom: 1px solid;
   border-color: #eeeeee;
   padding: 0 40px;
   @include space;
   &__group {
-    margin-top: 35px; 
+    margin-top: 35px;
     &__group-name {
       @include font(#333333, 20px);
       margin-bottom: 15px;
@@ -41,7 +41,10 @@
   padding: 46px 40px 0;
   overflow: scroll;
   .chat-box {
-    margin-bottom: 40px; 
+    margin-bottom: 40px;
+  }
+
+  .top-message {
     &__user-name {
       @include font(#434A54, 16px);
       display: flex;
@@ -53,6 +56,8 @@
         font-weight: normal;
       }
     }
+  }
+  .bottom-message {
     &__text {
       @include font(#434A54, 14px);
     }
