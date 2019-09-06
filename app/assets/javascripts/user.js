@@ -50,8 +50,8 @@ $(function() {
 
   $(document).on('click', '.chat-search-add', function(){
     $(this).parent().remove();
-    var user_id = $(this).attr('data-user-id');
-    var user_name = $(this).prev().text();
+    var user_id = $(this).data('user-id');
+    var user_name = $(this).data('user-name');
     addGroupMember(user_id, user_name)
   });
 
