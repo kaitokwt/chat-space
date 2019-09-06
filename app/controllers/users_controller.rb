@@ -1,6 +1,12 @@
 class UsersController < ApplicationController
   def index
-    @users = User.where("name LIKE(?) and id != ?", "%#{params[:keyword]}%", current_user.id)
+    if params[:group_id].present?
+      @group = Group.find(params[:group_id])
+      @ids = @group.users.ids
+      @users = User.where.not(id: @ids).where("name LIKE(?) and id != ?", "%#{params[:keyword]}%", "#{current_user.id}")
+    else
+      @users = User.where("name LIKE(?) and id != ?", "%#{params[:keyword]}%", "#{current_user.id}")
+    end
     respond_to do |format|
       format.html
       format.json
