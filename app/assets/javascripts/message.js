@@ -1,8 +1,34 @@
 $(function(){
+  var reloadMessages = function() {
+    var last_message_id = $('.chat-box:last').data('message-id');
+
+    $.ajax({
+      url: 'api/messages',
+      type: 'GET',
+      dataType: 'json',
+      data: {id: last_message_id}
+    })
+    .done(function(messages) {
+      var insertHTML = '';
+      messages.forEach(function(message){
+        var insertHTML = insertHTML + buildHTML(message);
+
+      });
+      //メッセージが入ったHTMLを取得
+
+      //メッセージを追加
+
+    })
+    .fail(function() {
+      console.log('error');
+    });
+  };
+
   function buildHTML(message){
-    if (message.image){
+    var img = message.image.url ? `<img asset_path src=${message.image.url} >` : ``
+
       var html =
-      `<div class="chat-box">
+      `<div class="chat-box" data-message-id="${message.id}">
         <div class="top-message">
           <div class="top-message__user-name">
             ${message.user_name}
@@ -16,29 +42,11 @@ $(function(){
             ${message.body}
           </p>
         </div>
-        <img asset_path src=${message.image} >
+        ${img}
       </div>`
       return html;
-    } else {
-      var html =
-      `<div class="chat-box">
-        <div class="top-message">
-          <div class="top-message__user-name">
-            ${message.user_name}
-            <div class="top-message__user-name__time">
-              ${message.data}
-            </div>
-          </div>
-        </div>
-        <div class="bottom-message">
-          <p class="bottom-message__text">
-            ${message.body}
-          </p>
-        </div>
-      </div>`
-      return html;
-    };
   }
+
   $(".message").on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
