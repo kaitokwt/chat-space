@@ -1,31 +1,30 @@
 $(function(){
   var reloadMessages = function() {
-    var last_message_id = $('.chat-box:last').data('message-id');
+    if (window.location.href.match(/\/groups\/\d+\/messages/)){
+      var last_message_id = $('.chat-box:last').data('message-id');
 
-    $.ajax({
-      url: 'api/messages',
-      type: 'GET',
-      dataType: 'json',
-      data: {id: last_message_id}
-    })
-    .done(function(messages) {
-      var insertHTML = '';
-      messages.forEach(function(message){
-        var insertHTML = insertHTML + buildHTML(message);
-
+      $.ajax({
+        url: 'api/messages',
+        type: 'GET',
+        data: {id: last_message_id},
+        dataType: 'json'
+      })
+      .done(function(messages) {
+        var insertHTML = '';
+        messages.forEach(function(message){
+          insertHTML = buildHTML(message);
+          $('.main-chat').append(insertHTML);
+          $('.main-chat').animate({scrollTop: $('.main-chat')[0].scrollHeight}, 'fast');
+        });
+      })
+      .fail(function() {
+        alert('error');
       });
-      //メッセージが入ったHTMLを取得
-
-      //メッセージを追加
-
-    })
-    .fail(function() {
-      console.log('error');
-    });
+    };
   };
 
   function buildHTML(message){
-    var img = message.image.url ? `<img asset_path src=${message.image.url} >` : ``
+    var img = message.image ? `<img src=${message.image} >` : ``
 
       var html =
       `<div class="chat-box" data-message-id="${message.id}">
@@ -71,4 +70,5 @@ $(function(){
       $('.submit').attr('disabled', false);
     });
   });
+  setInterval(reloadMessages, 5000);
 });
