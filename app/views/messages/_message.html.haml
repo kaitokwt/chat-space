@@ -1,9 +1,9 @@
-.chat-box
+.chat-box{ "data-message-id": "#{message.id}" }
   .top-message
     .top-message__user-name
       = message.user.name
       .top-message__user-name__time
-        = message.created_at.in_time_zone('Tokyo').strftime('%Y/%m/%d(%a) %T')
+        = message.created_at.to_s(:ja)
   .bottom-message
     - if message.body.present?
       %p.bottom-message__text
