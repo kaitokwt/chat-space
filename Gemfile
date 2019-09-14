@@ -69,7 +69,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'haml-rails'
 gem 'font-awesome-rails'
 gem "nokogiri", ">= 1.10.4"
-gem 'devise'
+gem "devise", ">= 4.7.1"
 gem 'rails-i18n', '~> 5.1'
 gem 'carrierwave'
 gem 'fog-aws'
